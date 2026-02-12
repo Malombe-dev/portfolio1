@@ -32,3 +32,39 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
+
+/* footer and navbar */
+/* Navigation */
+.nav-link {
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+/* Footer */
+footer a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* about us */
+.skill-item{
+    padding: 1.5rem;
+    background-color: #f8f8fa;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.skill-item:hover{
+    background-color: #e9ecef;
+}
+.skill-item h5{
+    color: #0d6efd;
+    margin-bottom: 1.5rem;
+}
