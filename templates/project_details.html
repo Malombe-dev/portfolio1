@@ -1,10 +1,104 @@
 {% extends 'base.html' %}
 
-{% block title %} {{project.title}} - My Portfolio{%endblock %}
+{% block title %}{{ project.title }} - My Portfolio{% endblock %}
 
-{% block content%}
-
-
-
-
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <!-- Back Button -->
+        <a href="{{ url_for('portfolio') }}" class="btn btn-outline-secondary mb-4">
+            ← Back to Portfolio
+        </a>
+        
+        <!-- Project Header -->
+        <div class="row mb-5">
+            <div class="col-lg-8">
+                <h1 class="display-4 mb-3">{{ project.title }}</h1>
+                <p class="lead text-muted">{{ project.short_description }}</p>
+                
+                <!-- Technologies -->
+                <div class="mb-4">
+                    <h5 class="mb-3">Technologies Used:</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for tech in project.technologies %}
+                        <span class="badge bg-primary">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Project Links -->
+                <div class="d-flex gap-3">
+                    <a href="{{ project.github }}" class="btn btn-dark" target="_blank">
+                        View on GitHub
+                    </a>
+                    <a href="{{ project.live_demo }}" class="btn btn-success" target="_blank">
+                        Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project Image -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <img src="{{ url_for('static', filename='images/' + project.image) }}" 
+                     alt="{{ project.title }}" 
+                     class="img-fluid rounded shadow-lg">
+            </div>
+        </div>
+        
+        <!-- Project Description -->
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Project Overview</h2>
+                <p class="mb-4">{{ project.description }}</p>
+                
+                <!-- Key Features -->
+                <h3 class="mb-3">Key Features</h3>
+                <ul class="feature-list mb-5">
+                    {% for feature in project.features %}
+                    <li class="mb-2">{{ feature }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <!-- Challenges & Solutions -->
+                <h3 class="mb-3">Challenges & Solutions</h3>
+                <p class="mb-4">{{ project.challenges }}</p>
+                
+                <!-- Call to Action -->
+                <div class="card bg-light mt-5 p-4">
+                    <h4 class="mb-3">Interested in this project?</h4>
+                    <p class="mb-3">Check out the source code on GitHub or try the live demo to see it in action.</p>
+                    <div class="d-flex gap-3">
+                        <a href="{{ project.github }}" class="btn btn-dark" target="_blank">
+                            GitHub Repository
+                        </a>
+                        <a href="{{ project.live_demo }}" class="btn btn-success" target="_blank">
+                            Try Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="card sticky-top" style="top: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Project Info</h5>
+                        <hr>
+                        <p><strong>Category:</strong> Web Development</p>
+                        <p><strong>Year:</strong> 2024</p>
+                        <p><strong>Status:</strong> <span class="badge bg-success">Completed</span></p>
+                        <hr>
+                        <h6>Share this project:</h6>
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Twitter</a>
+                            <a href="#" class="btn btn-sm btn-outline-primary">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
