@@ -77,5 +77,9 @@ def project_details(project_id):
     if project is None:
         abort(404)
     return render_template('project_details.html',project=project)
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 if __name__ == '__main__':
     app.run(debug=True,port='5001')
